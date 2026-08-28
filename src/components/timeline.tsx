@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { RevealOnScroll } from "@/components/reveal";
+import { Reveal } from "@/components/reveal";
 import { cn } from "@/lib/utils";
 
 export type TimelineItem = {
@@ -19,7 +19,7 @@ export function Timeline({
   return (
     <ol className="timeline">
       {items.map((item, index) => (
-        <RevealOnScroll key={item.period + index} delay={index * 0.06}>
+        <Reveal key={item.period + index} delay={index * 0.12}>
           <li className="timeline-item">
             <span
               className={cn(
@@ -50,7 +50,7 @@ export function Timeline({
               {item.description}
             </p>
           </li>
-        </RevealOnScroll>
+        </Reveal>
       ))}
     </ol>
   );

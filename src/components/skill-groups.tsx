@@ -119,7 +119,7 @@ export function SkillGroups() {
             </div>
           </div>
           <p className="mt-5 text-sm leading-relaxed text-muted">
-            Object Oriented Design, Data Structures and Algorithms are my daily bread.
+            OOP, Data Structures and Algorithms are my daily bread.
           </p>
         </section>
       </RevealOnScroll>
@@ -132,8 +132,8 @@ export function SkillGroups() {
           </div>
           <p className="text-[0.95rem] leading-relaxed text-muted">
             I reverse things because I want the ground truth — not the brochure.
-            Binaries, calling conventions, and the quiet places documentation
-            never mentions.
+{/*             Binaries, calling conventions, and the quiet places documentation
+            never mentions. */}
           </p>
           <div className="mt-4 flex flex-wrap gap-1.5">
             {reversingTools.map((tool) => (

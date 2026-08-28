@@ -542,7 +542,7 @@
   }
 
   .cursor-blink,
-  .timeline-dot.current::after {
+  .timeline-wave {
     animation: none !important;
   }
 }

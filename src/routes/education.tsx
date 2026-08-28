@@ -18,7 +18,7 @@ function EducationPage() {
       <PageHeader
         kicker="Path"
         title="Education"
-        description="Mathematics first, then the engineering that makes it move. Names withheld on purpose."
+        description="Mathematics first, then the engineering that makes it move."
       />
       <Timeline
         variant="education"

@@ -17,7 +17,7 @@ function ProjectsPage() {
       <PageHeader
         kicker="Build"
         title="Projects"
-        description="Small, sharp tools. The list is data-driven — new work drops in as another card."
+        description="Small, sharp tools."
       />
       <ProjectGrid items={projects} />
     </SiteShell>

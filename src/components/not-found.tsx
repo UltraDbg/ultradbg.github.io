@@ -7,7 +7,7 @@ export function NotFound() {
       <p className="font-mono text-xs font-medium tracking-[0.14em] text-subtle uppercase">
         404
       </p>
-      <h1 className="mt-3 font-display text-[2.15rem] leading-tight tracking-[-0.03em]">
+      <h1 className="mt-3 font-display text-[2.15rem] leading-tight">
         No symbol at this address.
       </h1>
       <p className="mt-3 text-muted">The path you followed doesn’t map to a page.</p>

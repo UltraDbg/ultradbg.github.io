@@ -62,20 +62,23 @@ export const socials = [
 
 export const education = [
   {
-    period: "2021–2024",
-    redacted: "high school",
-    description: "Graduated with specialties in mathematics & physics.",
+    period: "2026–",
+    redacted: "Engineering School",
+    description: "Applied Mathematics & AI. Expected graduation 2029.",
+    icon: "engineering",
+    current: true,
   },
   {
     period: "2024–2026",
     redacted: "University",
     description: "Undergraduate Mathematics & Physics.",
+    icon: "university",
   },
   {
-    period: "2026–",
-    redacted: "engineering school",
-    description: "Applied Mathematics & AI. Expected graduation 2029.",
-    current: true,
+    period: "2021–2024",
+    redacted: "High School",
+    description: "Graduated with specialties in mathematics & physics.",
+    icon: "high-school",
   },
 ] as const;
 

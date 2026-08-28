@@ -21,7 +21,7 @@ function Home() {
           <AvatarMark />
         </Reveal>
         <Reveal delay={0.06}>
-          <h1 className="mt-6 font-display text-[2.35rem] leading-none tracking-[-0.03em] text-fg sm:text-[2.6rem]">
+          <h1 className="mt-6 font-display text-[2.35rem] leading-none text-fg sm:text-[2.6rem]">
             {site.name}
           </h1>
         </Reveal>

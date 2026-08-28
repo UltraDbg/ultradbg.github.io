@@ -28,7 +28,15 @@ export function Timeline({
                 item.current && "current",
               )}
               aria-hidden="true"
-            />
+            >
+              {item.current ? (
+                <>
+                  <span className="timeline-wave" />
+                  <span className="timeline-wave" />
+                  <span className="timeline-wave" />
+                </>
+              ) : null}
+            </span>
             <p className="font-mono text-xs font-medium tracking-wide text-subtle tabular-nums">
               {item.period}
               {item.current ? (

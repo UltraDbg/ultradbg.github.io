@@ -20,14 +20,46 @@ const mindset = [
   },
 ];
 
-const lowLevel = ["C", "C++", "Rust", "Nim"];
-const highLevel = ["JavaScript", "Python", "Lua", "C#", "Java"];
-const reversing = ["IDA Pro", "Assembly", "Debugging", "Binary analysis"];
+const lowLevel = [
+  { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" },
+  { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" },
+  { name: "Rust", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" },
+  { name: "Nim", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nim/nim-original.svg" },
+];
+const highLevel = [
+  { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
+  { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+  { name: "Lua", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/lua/lua-original.svg" },
+  { name: "C#", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" },
+  { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
+];
+const reversingTools = [
+  { name: "IDA Pro", icon: "/ida.png" },
+  { name: "Ghidra", icon: "/ghidra.png" },
+  { name: "x64dbg", icon: "/x64dbg.png" },
+];
+const reversingConcepts = [
+  { name: "Assembly", icon: "/asm.png" },
+  { name: "Binary analysis", icon: "/binary.png" },
+];
 
 function Chip({ children }: { children: string }) {
   return (
     <span className="rounded-sm bg-fg/5 px-2 py-1 font-mono text-[0.72rem] tracking-wide text-fg">
       {children}
+    </span>
+  );
+}
+
+function IconChip({ src, alt }: { src: string; alt: string }) {
+  return (
+    <span className="inline-flex items-center gap-2 rounded-sm bg-fg/5 px-2 py-1 font-mono text-[0.72rem] tracking-wide text-fg">
+      <img
+        src={src}
+        alt={alt}
+        className="h-4 w-4 object-contain"
+      />
+      {alt}
     </span>
   );
 }
@@ -70,7 +102,7 @@ export function SkillGroups() {
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {lowLevel.map((lang) => (
-                  <Chip key={lang}>{lang}</Chip>
+                  <IconChip key={lang.name} src={lang.icon} alt={lang.name} />
                 ))}
               </div>
             </div>
@@ -81,14 +113,13 @@ export function SkillGroups() {
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {highLevel.map((lang) => (
-                  <Chip key={lang}>{lang}</Chip>
+                  <IconChip key={lang.name} src={lang.icon} alt={lang.name} />
                 ))}
               </div>
             </div>
           </div>
           <p className="mt-5 text-sm leading-relaxed text-muted">
-            Strong command of object-oriented design, data structures, and the
-            logic that holds them together.
+            Object Oriented Design, Data Structures and Algorithms are my daily bread.
           </p>
         </section>
       </RevealOnScroll>
@@ -105,8 +136,11 @@ export function SkillGroups() {
             never mentions.
           </p>
           <div className="mt-4 flex flex-wrap gap-1.5">
-            {reversing.map((item) => (
-              <Chip key={item}>{item}</Chip>
+            {reversingTools.map((tool) => (
+              <IconChip key={tool.name} src={tool.icon} alt={tool.name} />
+            ))}
+            {reversingConcepts.map((item) => (
+              <IconChip key={item.name} src={item.icon} alt={item.name} />
             ))}
           </div>
         </section>

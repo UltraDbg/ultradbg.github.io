@@ -1,1 +1,0 @@
-import{r as e}from"./index-CFWRD_yo.js";var t=e;export{t as component};

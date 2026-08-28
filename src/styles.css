@@ -4,7 +4,7 @@
 
 @theme inline {
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-display: "IBM Plex Sans", "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   --color-bg: var(--bg);
@@ -375,26 +375,44 @@
   background: var(--exp);
 }
 
-.timeline-dot.current::after {
-  content: "";
+.timeline-dot.current {
+  z-index: 1;
+  border-radius: 9999px;
+  box-shadow:
+    0 0 0 4px var(--bg),
+    0 0 0 1px color-mix(in oklab, var(--edu) 75%, transparent),
+    0 0 0.35rem color-mix(in oklab, var(--edu) 38%, transparent);
+}
+
+.timeline-wave {
   position: absolute;
-  inset: -5px;
-  border-radius: inherit;
-  border: 1px solid color-mix(in oklab, var(--edu) 70%, transparent);
-  animation: pulse-ring 2.6s var(--ease-smooth-out) infinite;
+  inset: -0.2rem;
+  border: 1px solid color-mix(in oklab, var(--edu) 68%, transparent);
+  border-radius: 9999px;
+  box-shadow: 0 0 0 0.12rem color-mix(in oklab, var(--edu) 18%, transparent);
+  pointer-events: none;
+  animation: pulse-ring 3.6s var(--ease-smooth-out) infinite;
+}
+
+.timeline-wave:nth-child(2) {
+  animation-delay: 1.2s;
+}
+
+.timeline-wave:nth-child(3) {
+  animation-delay: 2.4s;
 }
 
 @keyframes pulse-ring {
   0% {
-    transform: scale(0.85);
-    opacity: 0.55;
+    transform: scale(0.95);
+    opacity: 0.65;
   }
-  70% {
-    transform: scale(1.25);
+  72% {
+    transform: scale(2.5);
     opacity: 0;
   }
   100% {
-    transform: scale(1.25);
+    transform: scale(2.5);
     opacity: 0;
   }
 }

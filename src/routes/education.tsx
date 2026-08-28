@@ -28,8 +28,9 @@ function EducationPage() {
           description: item.description,
           title: (
             <>
-              <Redacted />
               {item.redacted}
+              <span className="mx-1">of</span>
+              <Redacted />
             </>
           ),
         }))}

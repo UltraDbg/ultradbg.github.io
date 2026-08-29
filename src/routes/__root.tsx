@@ -33,7 +33,7 @@ export const Route = createRootRoute({
         rel: "manifest",
         href: `${import.meta.env.BASE_URL}__grok/manifest.webmanifest`,
       },
-      { rel: "apple-touch-icon", href: `${import.meta.env.BASE_URL}__grok/icon-180.png` },
+      { rel: "apple-touch-icon", href: `${import.meta.env.BASE_URL}public/avatar.png` },
     ],
   }),
   component: RootDocument,

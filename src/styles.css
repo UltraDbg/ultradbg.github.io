@@ -240,7 +240,8 @@
   outline-offset: 3px;
 }
 
-.social-link[data-label]::after {
+.social-link[data-label]::after,
+.email-social-btn:hover::after {
   content: attr(data-label);
   position: absolute;
   left: 50%;
@@ -262,9 +263,18 @@
 }
 
 .social-link:hover::after,
-.social-link:focus-visible::after {
+.social-link:focus-visible::after,
+.email-social-btn:hover::after {
   opacity: 1;
   transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.email-social-btn {
+  position: relative;
+}
+
+.email-social-btn::after {
+  content: "Email";
 }
 
 .theme-toggle {
@@ -381,40 +391,7 @@
   box-shadow:
     0 0 0 4px var(--bg),
     0 0 0 1px color-mix(in oklab, var(--edu) 75%, transparent),
-    0 0 0.35rem color-mix(in oklab, var(--edu) 38%, transparent);
-}
-
-.timeline-wave {
-  position: absolute;
-  inset: -0.2rem;
-  border: 1px solid color-mix(in oklab, var(--edu) 68%, transparent);
-  border-radius: 9999px;
-  box-shadow: 0 0 0 0.12rem color-mix(in oklab, var(--edu) 18%, transparent);
-  pointer-events: none;
-  animation: pulse-ring 3.6s var(--ease-smooth-out) infinite;
-}
-
-.timeline-wave:nth-child(2) {
-  animation-delay: 1.2s;
-}
-
-.timeline-wave:nth-child(3) {
-  animation-delay: 2.4s;
-}
-
-@keyframes pulse-ring {
-  0% {
-    transform: scale(0.95);
-    opacity: 0.65;
-  }
-  72% {
-    transform: scale(2.5);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(2.5);
-    opacity: 0;
-  }
+    0 0 0.2rem color-mix(in oklab, var(--edu) 38%, transparent);
 }
 
 .card-surface {
@@ -541,8 +518,7 @@
     transform: none !important;
   }
 
-  .cursor-blink,
-  .timeline-wave {
+  .cursor-blink {
     animation: none !important;
   }
 }

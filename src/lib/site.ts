@@ -56,7 +56,7 @@ export const socials = [
   {
     id: "email",
     label: "Email",
-    href: "mailto:hello@ultradbg.dev",
+    href: "mailto:hello@ultradbg.com",
   },
 ] as const;
 

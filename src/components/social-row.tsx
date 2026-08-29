@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { Sms } from "iconsax-reactjs";
 import { socials } from "@/lib/site";
+import { EmailContactDialog } from "@/components/email-contact-dialog";
 
 function GitHubIcon() {
   return (
@@ -35,42 +36,72 @@ const glyphs: Record<string, ReactNode> = {
 
 export function SocialRow() {
   const [active, setActive] = useState<number | null>(null);
+  const [emailOpen, setEmailOpen] = useState(false);
   const leaving = active === null;
 
   return (
-    <ul
-      className="flex items-center justify-center gap-3"
-      onMouseLeave={() => setActive(null)}
-    >
-      {socials.map((item, index) => {
-        const distance = active === null ? 0 : Math.abs(index - active);
-        const lift = -4 * Math.pow(0.45, distance);
-        const scale = index === active ? 1.05 : 1;
-        return (
-          <li key={item.id}>
-            <a
-              href={item.href}
-              className="social-link t-avatar"
-              data-label={item.label}
-              aria-label={item.label}
-              target={item.href.startsWith("mailto:") ? undefined : "_blank"}
-              rel={item.href.startsWith("mailto:") ? undefined : "noreferrer"}
-              onMouseEnter={() => setActive(index)}
-              onFocus={() => setActive(index)}
-              onBlur={() => setActive(null)}
-              style={{
-                ["--shift" as string]: active === null ? "0px" : `${lift.toFixed(3)}px`,
-                ["--scale-active" as string]: String(scale),
-                transitionTimingFunction: leaving
-                  ? "var(--avatar-ease-out)"
-                  : "var(--avatar-ease-in)",
-              }}
-            >
-              {glyphs[item.id]}
-            </a>
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      <ul
+        className="flex items-center justify-center gap-3"
+        onMouseLeave={() => setActive(null)}
+      >
+        {socials.map((item, index) => {
+          const distance = active === null ? 0 : Math.abs(index - active);
+          const lift = -4 * Math.pow(0.45, distance);
+          const scale = index === active ? 1.05 : 1;
+          const isEmail = item.id === "email";
+          return (
+            <li key={item.id}>
+              {isEmail ? (
+                <button
+                  type="button"
+                  onClick={() => setEmailOpen(true)}
+                  className="social-link t-avatar email-social-btn"
+                  data-label={item.label}
+                  aria-label={`${item.label} — choose how to contact`}
+                  aria-haspopup="dialog"
+                  aria-expanded={emailOpen}
+                  onMouseEnter={() => setActive(index)}
+                  onFocus={() => setActive(index)}
+                  onBlur={() => setActive(null)}
+                  style={{
+                    ["--shift" as string]: active === null ? "0px" : `${lift.toFixed(3)}px`,
+                    ["--scale-active" as string]: String(scale),
+                    transitionTimingFunction: leaving
+                      ? "var(--avatar-ease-out)"
+                      : "var(--avatar-ease-in)",
+                  }}
+                >
+                  {glyphs[item.id]}
+                </button>
+              ) : (
+                <a
+                  href={item.href}
+                  className="social-link t-avatar"
+                  data-label={item.label}
+                  aria-label={item.label}
+                  target="_blank"
+                  rel="noreferrer"
+                  onMouseEnter={() => setActive(index)}
+                  onFocus={() => setActive(index)}
+                  onBlur={() => setActive(null)}
+                  style={{
+                    ["--shift" as string]: active === null ? "0px" : `${lift.toFixed(3)}px`,
+                    ["--scale-active" as string]: String(scale),
+                    transitionTimingFunction: leaving
+                      ? "var(--avatar-ease-out)"
+                      : "var(--avatar-ease-in)",
+                  }}
+                >
+                  {glyphs[item.id]}
+                </a>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+
+      <EmailContactDialog open={emailOpen} onOpenChange={setEmailOpen} />
+    </>
   );
 }
